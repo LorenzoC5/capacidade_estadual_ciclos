@@ -1,0 +1,5 @@
+episodio,inicio,fim,tipo,fonte,observacao
+Crise financeira global,2008T4,2009T1,recessao nacional,CODACE/FGV,Choque externo; queda de arrecadação de ICMS e de FPE no início de 2009
+Recessão 2014-2016,2014T2,2016T4,recessao nacional,CODACE/FGV,Recessão longa; vários estados atrasam salários e entram em crise de liquidez
+Covid-19,2020T1,2020T2,recessao nacional,CODACE/FGV,Queda curta; compensada por transferências da LC 173/2020 e suspensão de dívidas
+Corte de ICMS sobre combustíveis e energia,2022T3,2023T4,choque de receita,LC 194/2022 e LC 201/2023,Choque de receita sem recessão; útil como experimento de queda exógena de arrecadação
