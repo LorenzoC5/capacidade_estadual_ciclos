@@ -5,6 +5,7 @@ dados/03_final/**
 !dados/**/
 !dados/**/.gitkeep
 coleta.log
+coleta_console.txt
 
 # Python
 __pycache__/

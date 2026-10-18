@@ -59,7 +59,7 @@ def baixar_tabela(tabela: int, rotulo: str):
     periodos = [p["id"] for p in (get(f"{AGREG}/{tabela}/periodos") or [])]
     partes = []
     for i in range(0, max(len(periodos), 1), TAMANHO_LOTE):
-        lote = "|".join(periodos[i:i + TAMANHO_LOTE]) if periodos else "all"
+        lote = ",".join(periodos[i:i + TAMANHO_LOTE]) if periodos else "all"
         dados = get(f"{SIDRA}/t/{tabela}/n3/all/v/all/p/{lote}")
         if dados and len(dados) > 1:
             cab = dados[0]
