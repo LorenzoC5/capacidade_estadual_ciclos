@@ -12,7 +12,7 @@ A API devolve uma linha por célula do demonstrativo. As colunas que importam s�
 | Juros e amortização | RREO, Anexo 01 | JUROS E ENCARGOS DA DÍVIDA; AMORTIZAÇÃO DA DÍVIDA | Liquidadas | Serviço da dívida |
 | Despesa por função | RREO, Anexo 02 | funções (saúde, educação, segurança etc.) | Liquidadas | |
 | Receita Corrente Líquida | RREO, Anexo 03 | RECEITA CORRENTE LÍQUIDA | Total dos últimos 12 meses | Denominador dos limites da LRF; traz os 12 meses separados |
-| Previdência (RPPS) | RREO, Anexo 04 | receitas e despesas previdenciárias; resultado | Até o Bimestre | Peso crescente nas despesas obrigatórias |
+| Previdência (RPPS) | RREO, Anexo 04 | receitas e despesas previdenciárias; resultado | Até o Bimestre | Peso crescente nas despesas obrigatórias. Na API, o anexo se chama “RREO-Anexo 04 - RPPS” em 2015 e sai dividido em “RREO-Anexo 04.1” e “RREO-Anexo 04.2” em 2016; os estados não usaram as duas partes de forma uniforme. A coleta grava tudo na pasta `RREO-Anexo_04` e a coluna `anexo` guarda o nome original |
 | Resultado primário | RREO, Anexo 06 | RESULTADO PRIMÁRIO | Até o Bimestre | Acima da linha; comparar com BCB abaixo da linha |
 | Restos a pagar | RREO, Anexo 07 | restos a pagar processados e não processados | Saldo | Atraso de pagamento em crise |
 | Regra de ouro | RREO, Anexo 09 | operações de crédito e despesas de capital | | |

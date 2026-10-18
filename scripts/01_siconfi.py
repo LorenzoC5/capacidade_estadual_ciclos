@@ -31,6 +31,12 @@ RREO_ANEXOS = [
     "RREO-Anexo 07",  # Restos a pagar por poder
     "RREO-Anexo 09",  # Operações de crédito e despesas de capital (regra de ouro)
 ]
+# Nomes que a API usa quando o anexo tinha outro rótulo no exercício. A pasta e o
+# arquivo ficam com o nome padrão; a coluna "anexo" dos dados guarda o original.
+RREO_ANEXOS_POR_ANO = {
+    ("RREO-Anexo 04", 2015): ["RREO-Anexo 04 - RPPS"],
+    ("RREO-Anexo 04", 2016): ["RREO-Anexo 04.1", "RREO-Anexo 04.2"],
+}
 RGF_ANEXOS = [
     "RGF-Anexo 01",  # Despesa com pessoal (% RCL)
     "RGF-Anexo 02",  # Dívida Consolidada Líquida (DCL/RCL, limite do Senado)
@@ -59,13 +65,17 @@ def coletar_rreo(ano_ini: int, ano_fim: int):
                                / f"{ano}" / f"rreo_{ano}_b{periodo}_{uf.sigla}.csv")
                     if ja_existe(destino):
                         continue
-                    itens = ords_todos(SICONFI, "/rreo", {
-                        "an_exercicio": ano, "nr_periodo": periodo,
-                        "co_tipo_demonstrativo": "RREO", "no_anexo": anexo,
-                        "co_esfera": "E", "id_ente": int(uf.cod_ibge),
-                    })
+                    nomes = RREO_ANEXOS_POR_ANO.get((anexo, ano), [anexo])
+                    itens = []
+                    for nome in nomes:
+                        itens += ords_todos(SICONFI, "/rreo", {
+                            "an_exercicio": ano, "nr_periodo": periodo,
+                            "co_tipo_demonstrativo": "RREO", "no_anexo": nome,
+                            "co_esfera": "E", "id_ente": int(uf.cod_ibge),
+                        })
                     n = salvar(itens, destino)
-                    log.info("RREO %s %s b%s %s: %s linhas", anexo, ano, periodo, uf.sigla, n)
+                    log.info("RREO %s %s b%s %s: %s linhas", " + ".join(nomes), ano, periodo,
+                             uf.sigla, n)
 
 
 def coletar_rgf(ano_ini: int, ano_fim: int, poderes=("E",)):

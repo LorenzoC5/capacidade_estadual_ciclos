@@ -43,4 +43,8 @@ Publicado pelo Tesouro todo ano desde 2016, com anexos em planilha. A rotina `02
 
 ## Contas Regionais 2024
 
-O IBGE costuma divulgar as Contas Regionais em novembro, com cerca de dois anos de defasagem. A edição com dados de 2023 saiu em novembro de 2025; a de 2024 deve sair na próxima rodada. Quando sair, basta rodar `python scripts/03_ibge.py` de novo, depois de apagar os arquivos `sidra_t*.csv` das Contas Regionais.
+O IBGE costuma divulgar as Contas Regionais em novembro, com cerca de dois anos de defasagem. A edição com dados de 2023 saiu em novembro de 2025; a de 2024 deve sair na próxima rodada.
+
+As Contas Regionais não aparecem como pesquisa na API de agregados do SIDRA (a única tabela por UF lá é a 5938, da pesquisa “Produto Interno Bruto dos Municípios”, só com valores correntes). Por isso `03_ibge.py` busca a edição mais recente no FTP do IBGE (`ftp.ibge.gov.br/Contas_Regionais/<edição>/xls/`), guarda os zips `Especiais_2002_<edição>_xls.zip` e `Conta_da_Producao_2002_<edição>_xls.zip` em `dados/01_bruto/ibge/contas_regionais/<edição>/` e grava `contas_regionais_especiais.csv` e `contas_regionais_conta_producao.csv`. As planilhas do IBGE vêm com os acentos corrompidos e, nas contas das grandes regiões, com o rótulo “Região Norte” repetido por engano; o script identifica território e atividade pelo título do arquivo e pela posição da aba. Ler as planilhas `.xls` exige o pacote `xlrd`, que está no `requirements.txt`.
+
+Quando a edição nova sair, basta apagar os dois CSVs `contas_regionais_*.csv` (e `sidra_t5938.csv`, se quiser atualizar também a tabela do SIDRA) e rodar `python scripts/03_ibge.py` de novo. Os zips da edição anterior ficam guardados na própria pasta.
