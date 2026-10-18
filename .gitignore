@@ -7,6 +7,9 @@ dados/03_final/**
 coleta.log
 coleta_console.txt
 
+# Documentos internos da parceria (ficam só localmente)
+docs/pedido_dados_sefaz_mt.md
+
 # Python
 __pycache__/
 *.pyc

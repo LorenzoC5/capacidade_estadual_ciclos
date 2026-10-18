@@ -27,8 +27,7 @@ capacidade_estadual_ciclos/
 │   └── 03_final/                painel UF × período usado nas estimações
 ├── docs/
 │   ├── dicionario_siconfi.md    onde está cada variável nos anexos do RREO, RGF e DCA
-│   ├── downloads_manuais.md     CONFAZ, séries pré-2013, Base dos Dados, boletins
-│   └── pedido_dados_sefaz_mt.md o que pedir ao parceiro
+│   └── downloads_manuais.md     CONFAZ, séries pré-2013, Base dos Dados, boletins
 └── notebooks/
 ```
 
