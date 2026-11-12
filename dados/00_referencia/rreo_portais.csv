@@ -5,17 +5,17 @@ AM,lista,https://www.sefaz.am.gov.br/submenu-externo/45913,RREO completo 2001-20
 AP,lista,,sem RREO 2000-2015 em PDF ou XLS; só páginas HTML de 2000-2004 no Wayback da SEFAZ-AP; portal de transparência a partir de 2020
 BA,lista,https://www.sefaz.ba.gov.br/financas-publicas/relatorios-bimestrais/,Balanço e RCL por bimestre 2000-2015; certificado incompleto no portal; arquivos via Wayback de /pdf/lrf/bimestrais
 CE,lista,https://www.ce.gov.br/sefaz/download/lei-de-responsabilidade-fiscal-lrf/,Balanço e RCL por bimestre 2001-2015 em ww16.ce.gov.br (www.ce.gov.br tem cadeia de certificado incompleta); lacunas em 2007
-DF,lista,https://www.economia.df.gov.br/relatorios-da-lrf-2,RREO por bimestre na maioria dos anos 2004-2015; 2000 só 6º bim.; 2001 fora do ar; 2002-2003 só em ZIP
+DF,lista,https://www.economia.df.gov.br/relatorios-da-lrf-2,RREO por bimestre na maioria dos anos 2004-2015; 2000 só 6º bim.; 2002 e 2003 só o Balanço do 6º bim. tirado do ZIP do ano; 2001 fora do ar
 ES,lista,https://sefaz.es.gov.br/rreo,RREO completo por bimestre desde o 5º bim. de 2000; 2011 b3 existe no servidor sem link na página
 GO,lista,https://transparencia.go.gov.br/rreo/,Anexos 1 e 3 por bimestre desde 2014; 2001-2011 só em arquivos avulsos migrados do site antigo da CGE; muitas lacunas
-MA,lista,https://seplan.ma.gov.br/responsabilidade-fiscal,PDF só de 2013 em diante; 2004-2007 recuperados do Wayback; 2001-2012 no portal apenas em ZIP
+MA,lista,https://seplan.ma.gov.br/responsabilidade-fiscal,PDF por bimestre de 2013 em diante; 2003-2012 tirados dos ZIPs anuais do mesmo portal (2004-2007 também do Wayback); 2008 está num ZIP corrompido; 2000-2002 só em planilha ou anexos avulsos
 MG,lista,https://www.fazenda.mg.gov.br/governo/contadoria_geral/lrf/,Balanço e RCL por bimestre 2004-2015; 2000-2003 só 6º bim.; RCL era o anexo V em 2000-2001
 MS,lista,https://www.sefaz.ms.gov.br/lei-de-responsabilidade-fiscal-lrf/,PDF por bimestre 2010-2015; 2003-2009 só na edição inteira do Diário Oficial (escaneada até 2006); 2000-2002 só em HTML
 MT,lista,https://www5.sefaz.mt.gov.br/relatorios-lei-de-respons.-fiscal,RREO completo por bimestre 2002-2015; 2002-2006 com tabelas em imagem; 2000-2001 ausentes
 PA,lista,https://www.sefa.pa.gov.br/relatorios-bimestrais/,RREO completo por bimestre desde o 3º bim. de 2000; links da API WordPress do portal
 PB,lista,https://siaf.cge.pb.gov.br/CGE/jspReo?EXERCICIO=2008,Balanço (receita e despesa) e RCL em arquivos separados por bimestre de 2000 (3º bim.) a 2015
 PE,lista,http://web.transparencia.pe.gov.br/ckan/dataset/relatorio-resumido-da-execucao-orcamentaria-rreo,CKAN do portal da transparência; RREO completo por bimestre 2002-2015 e 6º bim. de 2001
-PI,lista,https://www.sefaz.pi.gov.br/arquivos/lrf/,diretório aberto 2001-2012 (um PDF por anexo); 2013-2015 via Wayback do site antigo; 2001-2002 só em ZIP
+PI,lista,https://www.sefaz.pi.gov.br/arquivos/lrf/,diretório aberto 2001-2012 (um PDF por anexo); 2013-2015 via Wayback do site antigo; 2002 b2 e b6 em planilha dentro de ZIP; o ZIP de 2001 está corrompido
 PR,lista,https://www.fazenda.pr.gov.br/webservices/documentador/responsabilidade-fiscal-lrf-exercicios-anteriores,um PDF por anexo desde o 3º bim. de 2000; Balanço dividido em receita e despesa desde 2002
 RJ,lista,https://portal.fazenda.rj.gov.br/contabilidade/relatorios-fiscais/,portal bloqueia IPs residenciais; anexos 2001-2015 via Wayback com lacunas; 2000 indisponível; RCL era o anexo V em 2001
 RN,lista,https://www.control.rn.gov.br/documentos/Demonstrativos%20Fiscais/,anexos por bimestre via Nextcloud só de 2010 a 2015; anos anteriores não localizados

@@ -14,7 +14,10 @@ Quando o portal não se deixa percorrer (página montada por JavaScript, busca p
 formulário, arquivos só no Wayback Machine), o estado usa o tipo "lista": os
 links ficam em dados/00_referencia/rreo_links/<UF>.csv, com as colunas ano,
 bimestre, url e, opcionalmente, parte (quando o RREO vem em mais de um arquivo,
-por exemplo um por anexo) e observacao. A rotina então só baixa o que está lá.
+por exemplo um por anexo), membro e observacao. A rotina então só baixa o que
+está lá. Quando o estado só publica um ZIP com vários relatórios, url aponta para
+o ZIP e membro diz qual arquivo tirar dele; ZIPs dentro de ZIPs ficam separados
+por "/" (por exemplo "respons_fiscal_2003.zip/LRF_fev2003.zip/anexo_1r.pdf").
 
 Uso:
     python scripts/40_rreo_baixar.py --uf MT --anos 2000 2015
@@ -30,9 +33,11 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import re
 import time
 import unicodedata
+import zipfile
 from urllib.parse import urljoin, urlparse
 
 import certifi
@@ -140,12 +145,31 @@ def lista(uf: str) -> pd.DataFrame:
     if not arq.exists():
         log.warning("%s: tipo lista, mas %s não existe", uf, arq)
         return pd.DataFrame()
-    man = pd.read_csv(arq, dtype={"parte": str}).fillna({"parte": ""})
-    if "parte" not in man:
-        man["parte"] = ""
+    man = pd.read_csv(arq, dtype={"parte": str, "membro": str})
+    for col in ("parte", "membro"):
+        man[col] = man[col].fillna("") if col in man else ""
     man["texto"] = man["observacao"] if "observacao" in man else ""
     man["pagina"] = arq.name
     return man
+
+
+_ZIPS: dict[str, bytes] = {}
+
+
+def tirar_do_zip(url: str, membro: str) -> bytes:
+    """Arquivo `membro` de dentro do ZIP em `url` (o ZIP é baixado uma vez só)."""
+    if url not in _ZIPS:
+        r = requests.get(url, headers=HEADERS, verify=VERIFICAR, timeout=300)
+        r.raise_for_status()
+        _ZIPS[url] = r.content
+    dados = _ZIPS[url]
+    for parte in membro.split("/"):
+        zf = zipfile.ZipFile(io.BytesIO(dados))
+        nome = next((n for n in zf.namelist() if n.rsplit("/", 1)[-1].lower() == parte.lower()), None)
+        if nome is None:
+            raise KeyError(f"{parte} não está no ZIP")
+        dados = zf.read(nome)
+    return dados
 
 
 def baixar_lista(uf: str, anos: tuple[int, int], listar: bool):
@@ -157,7 +181,8 @@ def baixar_lista(uf: str, anos: tuple[int, int], listar: bool):
     pasta = DESTINO / uf
     pasta.mkdir(parents=True, exist_ok=True)
     for i, linha in man.iterrows():
-        ext = next((e for e in EXT_ARQ if linha.url.lower().split("?")[0].endswith(e)), ".pdf")
+        alvo = linha.membro or linha.url
+        ext = next((e for e in EXT_ARQ if alvo.lower().split("?")[0].endswith(e)), ".pdf")
         sufixo = f"_{linha.parte}" if linha.parte else ""
         arq = pasta / f"{int(linha.ano)}" / f"{uf}_{int(linha.ano)}_b{int(linha.bimestre)}{sufixo}{ext}"
         man.at[i, "arquivo"] = str(arq.relative_to(DESTINO))
@@ -167,16 +192,20 @@ def baixar_lista(uf: str, anos: tuple[int, int], listar: bool):
             man.at[i, "status"] = "ja_existia"
             continue
         try:
-            r = requests.get(linha.url, headers=HEADERS, verify=VERIFICAR, timeout=120)
-            r.raise_for_status()
-            if ext == ".pdf" and not r.content.startswith(b"%PDF"):
+            if linha.membro:
+                conteudo = tirar_do_zip(linha.url, linha.membro)
+            else:
+                r = requests.get(linha.url, headers=HEADERS, verify=VERIFICAR, timeout=120)
+                r.raise_for_status()
+                conteudo = r.content
+            if ext == ".pdf" and not conteudo.startswith(b"%PDF"):
                 man.at[i, "status"] = "nao_e_pdf"
                 continue
             arq.parent.mkdir(parents=True, exist_ok=True)
-            arq.write_bytes(r.content)
+            arq.write_bytes(conteudo)
             man.at[i, "status"] = "baixado"
-            man.at[i, "sha1"] = hashlib.sha1(r.content).hexdigest()
-        except requests.RequestException as e:
+            man.at[i, "sha1"] = hashlib.sha1(conteudo).hexdigest()
+        except (requests.RequestException, zipfile.BadZipFile, KeyError, ValueError) as e:
             man.at[i, "status"] = f"erro: {e}"[:120]
         time.sleep(0.5)
     man.to_csv(pasta / "_manifesto.csv", index=False)

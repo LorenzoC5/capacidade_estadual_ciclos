@@ -1,78 +1,80 @@
-ano,bimestre,parte,url,observacao
-2000,6,,https://www.economia.df.gov.br/documents/d/seec/rreodezembro2000,portal SEEC-DF
-2004,1,,https://www.economia.df.gov.br/documents/d/seec/2004_01_b_rreo_todosrreo-pdf,portal SEEC-DF
-2004,2,,https://www.economia.df.gov.br/documents/d/seec/2004_02_b_rreo_todosrreo-pdf,portal SEEC-DF
-2004,3,,https://www.economia.df.gov.br/documents/d/seec/2004_03_b_rreo_todosrreo-pdf,portal SEEC-DF
-2004,4,,https://www.economia.df.gov.br/documents/d/seec/2004_04_b_rreo_todosrreo-pdf,portal SEEC-DF
-2004,5,,https://www.economia.df.gov.br/documents/d/seec/2004_05_b_rreo_todosrreo-pdf,portal SEEC-DF
-2004,6,,https://www.economia.df.gov.br/documents/d/seec/2004_06_b_rreo_todosrreo-pdf,portal SEEC-DF
-2005,1,,https://www.economia.df.gov.br/documents/d/seec/2005_01_b_rreo_todosrreo-pdf,portal SEEC-DF
-2005,2,,https://www.economia.df.gov.br/documents/d/seec/2005_02_b_rreo_todosrreo-pdf,portal SEEC-DF
-2005,3,,https://www.economia.df.gov.br/documents/d/seec/2005_03_b_rreo_todosrreo-pdf,portal SEEC-DF
-2005,4,,https://www.economia.df.gov.br/documents/d/seec/2005_04_b_rreo_todosrreo-pdf,portal SEEC-DF
-2005,5,,https://www.economia.df.gov.br/documents/d/seec/2005_05_b_rreo_todosrreo-pdf,portal SEEC-DF
-2005,6,,https://www.economia.df.gov.br/documents/d/seec/2005_06_b_rreo_todosrreo-pdf,portal SEEC-DF
-2006,1,anexo01,https://www.economia.df.gov.br/documents/d/seec/01-e-02-fev-06-pdf,portal SEEC-DF; demonstrativo avulso
-2006,2,anexo01,https://www.economia.df.gov.br/documents/d/seec/01-e-02-abr-06-pdf,portal SEEC-DF; demonstrativo avulso
-2006,3,anexo01,https://www.economia.df.gov.br/documents/d/seec/01e02jun06-pdf,portal SEEC-DF; demonstrativo avulso
-2006,4,anexo01,https://www.economia.df.gov.br/documents/d/seec/01e02ago06-pdf,portal SEEC-DF; demonstrativo avulso
-2006,5,anexo01,https://www.economia.df.gov.br/documents/d/seec/01out06-pdf,portal SEEC-DF; demonstrativo avulso
-2006,6,anexo01,https://www.economia.df.gov.br/documents/d/seec/01e02dez06-pdf,portal SEEC-DF; demonstrativo avulso
-2007,1,anexo01,https://www.economia.df.gov.br/documents/d/seec/01-e-02fev07-1-pdf,portal SEEC-DF; demonstrativo avulso
-2007,1,rcl,https://www.economia.df.gov.br/documents/d/seec/11-e-12fev07-pdf,portal SEEC-DF; demonstrativo avulso
-2007,2,anexo01,https://www.economia.df.gov.br/documents/d/seec/01abr07lrf-pdf,portal SEEC-DF; demonstrativo avulso
-2007,2,rcl,https://www.economia.df.gov.br/documents/d/seec/11abr07lrf-pdf,portal SEEC-DF; demonstrativo avulso
-2007,3,anexo01,https://www.economia.df.gov.br/documents/d/seec/01jun07lrf-pdf,portal SEEC-DF; demonstrativo avulso
-2007,3,rcl,https://www.economia.df.gov.br/documents/d/seec/11jun07lrf-pdf,portal SEEC-DF; demonstrativo avulso
-2007,4,anexo01,https://www.economia.df.gov.br/documents/d/seec/01ago07-pdf,portal SEEC-DF; demonstrativo avulso
-2007,4,rcl,https://www.economia.df.gov.br/documents/d/seec/11ago07-pdf,portal SEEC-DF; demonstrativo avulso
-2007,5,anexo01,https://www.economia.df.gov.br/documents/d/seec/01out07-pdf,portal SEEC-DF; demonstrativo avulso
-2007,5,rcl,https://www.economia.df.gov.br/documents/d/seec/11out07-pdf,portal SEEC-DF; demonstrativo avulso
-2007,6,anexo01,https://www.economia.df.gov.br/documents/d/seec/01dez07-pdf,portal SEEC-DF; demonstrativo avulso
-2007,6,rcl,https://www.economia.df.gov.br/documents/d/seec/11dez07repub-pdf,portal SEEC-DF; demonstrativo avulso; republicado
-2008,1,,https://www.economia.df.gov.br/documents/d/seec/2008_01_b_rreo_todosrreo,portal SEEC-DF
-2008,2,,https://www.economia.df.gov.br/documents/d/seec/2008_02_b_rreo_todosrreo,portal SEEC-DF
-2008,3,,https://www.economia.df.gov.br/documents/d/seec/2008_03_b_rreo_todosrreo,portal SEEC-DF
-2008,4,,https://www.economia.df.gov.br/documents/d/seec/2008_04_b_rreo_todosrreo,portal SEEC-DF
-2008,5,,https://www.economia.df.gov.br/documents/d/seec/2008_05_b_rreo_todosrreo,portal SEEC-DF
-2008,6,,https://www.economia.df.gov.br/documents/d/seec/2008_06_b_rreo_todosrreo,portal SEEC-DF
-2009,1,anexo01,https://www.economia.df.gov.br/documents/d/seec/01e02lrffev09-pdf,portal SEEC-DF; demonstrativo avulso
-2009,2,anexo01,https://www.economia.df.gov.br/documents/d/seec/01lrfabr09-pdf,portal SEEC-DF; demonstrativo avulso
-2009,2,rcl,https://www.economia.df.gov.br/documents/d/seec/rclabr09int,portal SEEC-DF; demonstrativo avulso
-2009,3,anexo01,https://www.economia.df.gov.br/documents/d/seec/01e02lrfjun09-pdf,portal SEEC-DF; demonstrativo avulso
-2009,3,rcl,https://www.economia.df.gov.br/documents/d/seec/11e12lrfjun09-pdf,portal SEEC-DF; demonstrativo avulso
-2009,4,,https://www.economia.df.gov.br/documents/d/seec/rreoago09y2-pdf,portal SEEC-DF
-2009,6,,https://www.economia.df.gov.br/documents/d/seec/rreodez09-pdf,portal SEEC-DF
-2010,1,,https://www.economia.df.gov.br/documents/d/seec/rreofev2010-1-pdf,portal SEEC-DF
-2010,2,,https://www.economia.df.gov.br/documents/d/seec/rreodfabr2010-1-pdf,portal SEEC-DF
-2010,3,,https://www.economia.df.gov.br/documents/d/seec/rreodfjun2010-1-pdf,portal SEEC-DF
-2010,4,,https://www.economia.df.gov.br/documents/d/seec/rreolrfago2010-1-pdf,portal SEEC-DF
-2010,5,,https://www.economia.df.gov.br/documents/d/seec/lrfout2010-1-1-pdf,portal SEEC-DF
-2010,6,,https://www.economia.df.gov.br/documents/d/seec/rreo6b2010-1-pdf,portal SEEC-DF
-2011,2,,https://www.economia.df.gov.br/documents/d/seec/rreoabr2011-pdf,portal SEEC-DF
-2011,3,,https://www.economia.df.gov.br/documents/d/seec/rreojun2011-pdf,portal SEEC-DF
-2011,4,,https://www.economia.df.gov.br/documents/d/seec/rreoago2011-pdf,portal SEEC-DF
-2011,5,,https://www.economia.df.gov.br/documents/d/seec/rreoout2011-pdf,portal SEEC-DF
-2011,6,,https://www.economia.df.gov.br/documents/d/seec/rreodez2011-pdf,portal SEEC-DF
-2012,2,,https://www.economia.df.gov.br/documents/d/seec/rreoabr2012-pdf,portal SEEC-DF
-2012,3,,https://www.economia.df.gov.br/documents/d/seec/rreojun2012-pdf,portal SEEC-DF
-2012,4,,https://www.economia.df.gov.br/documents/d/seec/rreoagosto2012-pdf,portal SEEC-DF
-2012,5,,https://www.economia.df.gov.br/documents/d/seec/rreolrfout2012-pdf,portal SEEC-DF
-2012,6,,https://www.economia.df.gov.br/documents/d/seec/rreo6bim2012-pdf,portal SEEC-DF
-2013,2,,https://www.economia.df.gov.br/documents/d/seec/rreoabril2013inter-pdf,portal SEEC-DF
-2013,3,,https://www.economia.df.gov.br/documents/d/seec/rreojun2013-pdf,portal SEEC-DF
-2013,4,,https://www.economia.df.gov.br/documents/d/seec/rreoago2013-pdf,portal SEEC-DF
-2013,5,,https://www.economia.df.gov.br/documents/d/seec/rreooutubro2013-pdf,portal SEEC-DF
-2013,6,,https://www.economia.df.gov.br/documents/d/seec/rreodezembro2013-pdf,portal SEEC-DF
-2014,1,,https://www.economia.df.gov.br/documents/d/seec/rreofevereiro2014-pdf,portal SEEC-DF
-2014,2,,https://www.economia.df.gov.br/documents/d/seec/rreoabril2014-pdf,portal SEEC-DF
-2014,3,,https://www.economia.df.gov.br/documents/d/seec/rreojunho2014-pdf,portal SEEC-DF
-2014,4,,https://www.economia.df.gov.br/documents/d/seec/rreoagosto2014-pdf,portal SEEC-DF
-2014,5,,https://www.economia.df.gov.br/documents/d/seec/rreooutubro2014-pdf,portal SEEC-DF
-2014,6,,https://www.economia.df.gov.br/documents/d/seec/rreodezembro2014-pdf,portal SEEC-DF
-2015,1,,https://www.economia.df.gov.br/documents/d/seec/rreofevereiro2015-pdf,portal SEEC-DF
-2015,2,,https://www.economia.df.gov.br/documents/d/seec/rreoabril2015-pdf,portal SEEC-DF
-2015,3,,https://www.economia.df.gov.br/documents/d/seec/rreo_junho_2015_dodf_3_bim-pdf,portal SEEC-DF
-2015,4,,https://www.economia.df.gov.br/documents/d/seec/lrf_rreo_agosto_2015-pdf,portal SEEC-DF
-2015,5,,https://www.economia.df.gov.br/documents/d/seec/rreooutubro2015-pdf,portal SEEC-DF
-2015,6,,https://www.economia.df.gov.br/documents/d/seec/rreodezembro2015-pdf,portal SEEC-DF
+ano,bimestre,parte,url,membro,observacao
+2000,6,,https://www.economia.df.gov.br/documents/d/seec/rreodezembro2000,,portal SEEC-DF
+2002,6,anexo01,https://www.economia.df.gov.br/documents/d/seec/todos-os-demonstrativos-do-rreo-2002,recdespdez2002.pdf,ZIP SEEC-DF; período pelo nome do arquivo
+2003,6,anexo01,https://www.economia.df.gov.br/documents/d/seec/todos-os-demonstrativos-do-rreo-2003,01 dez03.pdf,ZIP SEEC-DF; período pelo nome do arquivo
+2004,1,,https://www.economia.df.gov.br/documents/d/seec/2004_01_b_rreo_todosrreo-pdf,,portal SEEC-DF
+2004,2,,https://www.economia.df.gov.br/documents/d/seec/2004_02_b_rreo_todosrreo-pdf,,portal SEEC-DF
+2004,3,,https://www.economia.df.gov.br/documents/d/seec/2004_03_b_rreo_todosrreo-pdf,,portal SEEC-DF
+2004,4,,https://www.economia.df.gov.br/documents/d/seec/2004_04_b_rreo_todosrreo-pdf,,portal SEEC-DF
+2004,5,,https://www.economia.df.gov.br/documents/d/seec/2004_05_b_rreo_todosrreo-pdf,,portal SEEC-DF
+2004,6,,https://www.economia.df.gov.br/documents/d/seec/2004_06_b_rreo_todosrreo-pdf,,portal SEEC-DF
+2005,1,,https://www.economia.df.gov.br/documents/d/seec/2005_01_b_rreo_todosrreo-pdf,,portal SEEC-DF
+2005,2,,https://www.economia.df.gov.br/documents/d/seec/2005_02_b_rreo_todosrreo-pdf,,portal SEEC-DF
+2005,3,,https://www.economia.df.gov.br/documents/d/seec/2005_03_b_rreo_todosrreo-pdf,,portal SEEC-DF
+2005,4,,https://www.economia.df.gov.br/documents/d/seec/2005_04_b_rreo_todosrreo-pdf,,portal SEEC-DF
+2005,5,,https://www.economia.df.gov.br/documents/d/seec/2005_05_b_rreo_todosrreo-pdf,,portal SEEC-DF
+2005,6,,https://www.economia.df.gov.br/documents/d/seec/2005_06_b_rreo_todosrreo-pdf,,portal SEEC-DF
+2006,1,anexo01,https://www.economia.df.gov.br/documents/d/seec/01-e-02-fev-06-pdf,,portal SEEC-DF; demonstrativo avulso
+2006,2,anexo01,https://www.economia.df.gov.br/documents/d/seec/01-e-02-abr-06-pdf,,portal SEEC-DF; demonstrativo avulso
+2006,3,anexo01,https://www.economia.df.gov.br/documents/d/seec/01e02jun06-pdf,,portal SEEC-DF; demonstrativo avulso
+2006,4,anexo01,https://www.economia.df.gov.br/documents/d/seec/01e02ago06-pdf,,portal SEEC-DF; demonstrativo avulso
+2006,5,anexo01,https://www.economia.df.gov.br/documents/d/seec/01out06-pdf,,portal SEEC-DF; demonstrativo avulso
+2006,6,anexo01,https://www.economia.df.gov.br/documents/d/seec/01e02dez06-pdf,,portal SEEC-DF; demonstrativo avulso
+2007,1,anexo01,https://www.economia.df.gov.br/documents/d/seec/01-e-02fev07-1-pdf,,portal SEEC-DF; demonstrativo avulso
+2007,1,rcl,https://www.economia.df.gov.br/documents/d/seec/11-e-12fev07-pdf,,portal SEEC-DF; demonstrativo avulso
+2007,2,anexo01,https://www.economia.df.gov.br/documents/d/seec/01abr07lrf-pdf,,portal SEEC-DF; demonstrativo avulso
+2007,2,rcl,https://www.economia.df.gov.br/documents/d/seec/11abr07lrf-pdf,,portal SEEC-DF; demonstrativo avulso
+2007,3,anexo01,https://www.economia.df.gov.br/documents/d/seec/01jun07lrf-pdf,,portal SEEC-DF; demonstrativo avulso
+2007,3,rcl,https://www.economia.df.gov.br/documents/d/seec/11jun07lrf-pdf,,portal SEEC-DF; demonstrativo avulso
+2007,4,anexo01,https://www.economia.df.gov.br/documents/d/seec/01ago07-pdf,,portal SEEC-DF; demonstrativo avulso
+2007,4,rcl,https://www.economia.df.gov.br/documents/d/seec/11ago07-pdf,,portal SEEC-DF; demonstrativo avulso
+2007,5,anexo01,https://www.economia.df.gov.br/documents/d/seec/01out07-pdf,,portal SEEC-DF; demonstrativo avulso
+2007,5,rcl,https://www.economia.df.gov.br/documents/d/seec/11out07-pdf,,portal SEEC-DF; demonstrativo avulso
+2007,6,anexo01,https://www.economia.df.gov.br/documents/d/seec/01dez07-pdf,,portal SEEC-DF; demonstrativo avulso
+2007,6,rcl,https://www.economia.df.gov.br/documents/d/seec/11dez07repub-pdf,,portal SEEC-DF; demonstrativo avulso; republicado
+2008,1,,https://www.economia.df.gov.br/documents/d/seec/2008_01_b_rreo_todosrreo,,portal SEEC-DF
+2008,2,,https://www.economia.df.gov.br/documents/d/seec/2008_02_b_rreo_todosrreo,,portal SEEC-DF
+2008,3,,https://www.economia.df.gov.br/documents/d/seec/2008_03_b_rreo_todosrreo,,portal SEEC-DF
+2008,4,,https://www.economia.df.gov.br/documents/d/seec/2008_04_b_rreo_todosrreo,,portal SEEC-DF
+2008,5,,https://www.economia.df.gov.br/documents/d/seec/2008_05_b_rreo_todosrreo,,portal SEEC-DF
+2008,6,,https://www.economia.df.gov.br/documents/d/seec/2008_06_b_rreo_todosrreo,,portal SEEC-DF
+2009,1,anexo01,https://www.economia.df.gov.br/documents/d/seec/01e02lrffev09-pdf,,portal SEEC-DF; demonstrativo avulso
+2009,2,anexo01,https://www.economia.df.gov.br/documents/d/seec/01lrfabr09-pdf,,portal SEEC-DF; demonstrativo avulso
+2009,2,rcl,https://www.economia.df.gov.br/documents/d/seec/rclabr09int,,portal SEEC-DF; demonstrativo avulso
+2009,3,anexo01,https://www.economia.df.gov.br/documents/d/seec/01e02lrfjun09-pdf,,portal SEEC-DF; demonstrativo avulso
+2009,3,rcl,https://www.economia.df.gov.br/documents/d/seec/11e12lrfjun09-pdf,,portal SEEC-DF; demonstrativo avulso
+2009,4,,https://www.economia.df.gov.br/documents/d/seec/rreoago09y2-pdf,,portal SEEC-DF
+2009,6,,https://www.economia.df.gov.br/documents/d/seec/rreodez09-pdf,,portal SEEC-DF
+2010,1,,https://www.economia.df.gov.br/documents/d/seec/rreofev2010-1-pdf,,portal SEEC-DF
+2010,2,,https://www.economia.df.gov.br/documents/d/seec/rreodfabr2010-1-pdf,,portal SEEC-DF
+2010,3,,https://www.economia.df.gov.br/documents/d/seec/rreodfjun2010-1-pdf,,portal SEEC-DF
+2010,4,,https://www.economia.df.gov.br/documents/d/seec/rreolrfago2010-1-pdf,,portal SEEC-DF
+2010,5,,https://www.economia.df.gov.br/documents/d/seec/lrfout2010-1-1-pdf,,portal SEEC-DF
+2010,6,,https://www.economia.df.gov.br/documents/d/seec/rreo6b2010-1-pdf,,portal SEEC-DF
+2011,2,,https://www.economia.df.gov.br/documents/d/seec/rreoabr2011-pdf,,portal SEEC-DF
+2011,3,,https://www.economia.df.gov.br/documents/d/seec/rreojun2011-pdf,,portal SEEC-DF
+2011,4,,https://www.economia.df.gov.br/documents/d/seec/rreoago2011-pdf,,portal SEEC-DF
+2011,5,,https://www.economia.df.gov.br/documents/d/seec/rreoout2011-pdf,,portal SEEC-DF
+2011,6,,https://www.economia.df.gov.br/documents/d/seec/rreodez2011-pdf,,portal SEEC-DF
+2012,2,,https://www.economia.df.gov.br/documents/d/seec/rreoabr2012-pdf,,portal SEEC-DF
+2012,3,,https://www.economia.df.gov.br/documents/d/seec/rreojun2012-pdf,,portal SEEC-DF
+2012,4,,https://www.economia.df.gov.br/documents/d/seec/rreoagosto2012-pdf,,portal SEEC-DF
+2012,5,,https://www.economia.df.gov.br/documents/d/seec/rreolrfout2012-pdf,,portal SEEC-DF
+2012,6,,https://www.economia.df.gov.br/documents/d/seec/rreo6bim2012-pdf,,portal SEEC-DF
+2013,2,,https://www.economia.df.gov.br/documents/d/seec/rreoabril2013inter-pdf,,portal SEEC-DF
+2013,3,,https://www.economia.df.gov.br/documents/d/seec/rreojun2013-pdf,,portal SEEC-DF
+2013,4,,https://www.economia.df.gov.br/documents/d/seec/rreoago2013-pdf,,portal SEEC-DF
+2013,5,,https://www.economia.df.gov.br/documents/d/seec/rreooutubro2013-pdf,,portal SEEC-DF
+2013,6,,https://www.economia.df.gov.br/documents/d/seec/rreodezembro2013-pdf,,portal SEEC-DF
+2014,1,,https://www.economia.df.gov.br/documents/d/seec/rreofevereiro2014-pdf,,portal SEEC-DF
+2014,2,,https://www.economia.df.gov.br/documents/d/seec/rreoabril2014-pdf,,portal SEEC-DF
+2014,3,,https://www.economia.df.gov.br/documents/d/seec/rreojunho2014-pdf,,portal SEEC-DF
+2014,4,,https://www.economia.df.gov.br/documents/d/seec/rreoagosto2014-pdf,,portal SEEC-DF
+2014,5,,https://www.economia.df.gov.br/documents/d/seec/rreooutubro2014-pdf,,portal SEEC-DF
+2014,6,,https://www.economia.df.gov.br/documents/d/seec/rreodezembro2014-pdf,,portal SEEC-DF
+2015,1,,https://www.economia.df.gov.br/documents/d/seec/rreofevereiro2015-pdf,,portal SEEC-DF
+2015,2,,https://www.economia.df.gov.br/documents/d/seec/rreoabril2015-pdf,,portal SEEC-DF
+2015,3,,https://www.economia.df.gov.br/documents/d/seec/rreo_junho_2015_dodf_3_bim-pdf,,portal SEEC-DF
+2015,4,,https://www.economia.df.gov.br/documents/d/seec/lrf_rreo_agosto_2015-pdf,,portal SEEC-DF
+2015,5,,https://www.economia.df.gov.br/documents/d/seec/rreooutubro2015-pdf,,portal SEEC-DF
+2015,6,,https://www.economia.df.gov.br/documents/d/seec/rreodezembro2015-pdf,,portal SEEC-DF
