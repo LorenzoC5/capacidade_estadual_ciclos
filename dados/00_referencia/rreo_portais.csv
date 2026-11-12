@@ -1,0 +1,28 @@
+uf,tipo,url,observacao
+AC,pagina,,preencher: portal de transparência ou SEFAZ
+AL,pagina,,preencher
+AM,pagina,,preencher
+AP,pagina,,preencher
+BA,pagina,,preencher
+CE,pagina,,preencher
+DF,pagina,,preencher: o portal do DF mantém o RREO desde 2000
+ES,pagina,https://sefaz.es.gov.br/rreo,indicado pelo portal do TCE-ES
+GO,pagina,https://goias.gov.br/controladoria/?p=619,Controladoria-Geral do Estado; RREO e RGF por bimestre
+MA,pagina,,preencher
+MG,pagina,https://www.fazenda.mg.gov.br/governo/contadoria_geral/lei_responsabilidade_fiscal/rreo,Contadoria Geral; PDFs também no diário eletrônico da Fazenda
+MS,pagina,,preencher
+MT,pagina,http://www5.sefaz.mt.gov.br/relatorios-lei-de-respons.-fiscal,página citada pelo TCE-MT; PDFs em www5.sefaz.mt.gov.br/documents/...
+PA,pagina,,preencher
+PB,pagina,,preencher
+PE,ckan,http://web.transparencia.pe.gov.br/ckan/dataset/relatorio-resumido-da-execucao-orcamentaria-rreo,CKAN com PDFs por bimestre desde 2004
+PI,pagina,,preencher
+PR,pagina,https://www.fazenda.pr.gov.br/Pagina/Demonstrativo-da-LRF-RREO-e-RGF,página informa exercícios anteriores desde 2000
+RJ,pagina,https://portal.fazenda.rj.gov.br/contabilidade/relatorios-fiscais/,anexos em .xls nos anos recentes
+RN,pagina,,preencher
+RO,pagina,,preencher
+RR,pagina,,preencher
+RS,pagina,https://tesouro.fazenda.rs.gov.br/conteudo/14065/relatorio-de-execucao-orcamentaria---lrf,Tesouro do Estado
+SC,pagina,https://www.sef.sc.gov.br/saiba-mais/lei-de-responsabilidade-fiscal,SEF-SC; seção Relatório Resumido da Execução Orçamentária
+SE,pagina,,preencher
+SP,pagina,,preencher
+TO,pagina,,preencher

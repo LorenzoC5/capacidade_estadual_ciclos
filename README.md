@@ -4,6 +4,14 @@ Pasta de dados do projeto em parceria com a SEFAZ-MT. O tema reúne quatro frent
 
 O ponto de partida combinado com o orientador são três perguntas: (i) a poupança estadual é pró-cíclica?; (ii) como os estados reagiram às crises recentes?; (iii) estados mais endividados ou com menor poupança tiveram resultados piores nessas crises?
 
+## Escopo de dados acertado com o orientador
+
+O grupo trabalha só com dados públicos: a SEFAZ-MT não vai enviar dados internos para esta parte do projeto. Por isso o saldo de caixa diário ou mensal fica fora; o colchão de liquidez é medido pelo que é publicado (disponibilidade de caixa do RGF, Anexo 5, balanço patrimonial da DCA e, a partir de 2018, a MSC mensal). Dívida por contrato e ICMS por setor também ficam fora.
+
+O período de análise começa em 2000, com a LRF, o que permite comparar crise e não crise em pelo menos três episódios: 2003, 2008-09 e 2015-16, além de 2020. As variáveis centrais são a poupança corrente, a despesa com pessoal, o investimento e as despesas de capital, a dívida consolidada (RGF e PAF) e o custo do serviço da dívida, que o orientador sugeriu acompanhar ao longo das crises.
+
+A API do SICONFI só tem o RREO e o RGF dos estados a partir de 2015. Para 2000 a 2014 há duas saídas, descritas em `docs/downloads_manuais.md`: as séries anuais do Tesouro (Execução Orçamentária de Estados e FINBRA histórico) e os relatórios em PDF publicados no portal de cada secretaria de Fazenda.
+
 ## Como a pasta está organizada
 
 ```
@@ -19,6 +27,11 @@ capacidade_estadual_ciclos/
 │   ├── 04_bcb.py                IPCA, Selic, IBC-Br, IBCR regional, fiscais estaduais
 │   ├── 05_ipeadata.py           séries fiscais estaduais longas (antes do SICONFI)
 │   ├── 10_consolidar_siconfi.py empilha os arquivos brutos do SICONFI
+│   ├── 20_passo1_ajuste_crises.py  passo 1: o que cada estado cortou em cada crise
+│   ├── 30_corte_se_paga.py      quanto de cada real cortado o estado de fato economiza
+│   ├── 40_rreo_baixar.py        RREO 2000-2014 nos portais estaduais (PDF/XLS)
+│   ├── 41_rreo_extrair.py       lê Balanço Orçamentário e RCL dos PDFs
+│   ├── 42_rreo_serie_continua.py une PDFs e API numa série 2000 em diante
 │   └── _util.py                 requisições, paginação, gravação
 ├── dados/
 │   ├── 00_referencia/           UFs, datas das crises, marcos legais (já preenchidos)
@@ -27,7 +40,9 @@ capacidade_estadual_ciclos/
 │   └── 03_final/                painel UF × período usado nas estimações
 ├── docs/
 │   ├── dicionario_siconfi.md    onde está cada variável nos anexos do RREO, RGF e DCA
-│   └── downloads_manuais.md     CONFAZ, séries pré-2013, Base dos Dados, boletins
+│   ├── passo1_metodologia.md    método, medidas e limites do passo 1
+│   ├── rreo_historico.md        como coletar e validar o RREO de 2000 a 2014
+│   └── downloads_manuais.md     RREO e RGF de 2000 a 2014, CONFAZ, séries pré-2013, Base dos Dados
 └── notebooks/
 ```
 
@@ -44,7 +59,7 @@ python scripts/00_baixar_tudo.py
 
 A coleta completa leva algumas horas, quase todas no RREO (27 estados, seis bimestres, sete anexos, de 2015 até hoje). Ela pode ser interrompida e retomada: arquivos já em disco são pulados. Cada fonte também roda isolada, por exemplo `python scripts/01_siconfi.py rgf --anos 2019 2024`. Tudo o que acontece fica registrado em `coleta.log`, na raiz.
 
-Algumas bases não têm API aberta e entram por download manual, descrito em `docs/downloads_manuais.md`: o Boletim de Arrecadação do CONFAZ, as séries estaduais anteriores a 2013 (Execução Orçamentária de Estados e FINBRA histórico), caso a busca automática no Tesouro Transparente não as encontre, a versão compatibilizada do SICONFI na Base dos Dados e os dados internos da SEFAZ-MT.
+Algumas bases não têm API aberta e entram por download manual, descrito em `docs/downloads_manuais.md`: o Boletim de Arrecadação do CONFAZ, as séries estaduais anteriores a 2013 (Execução Orçamentária de Estados e FINBRA histórico), caso a busca automática no Tesouro Transparente não as encontre, a versão compatibilizada do SICONFI na Base dos Dados e os RREOs e RGFs estaduais de 2000 a 2014, que só existem nos portais de cada secretaria.
 
 ## Qual base responde a qual pergunta
 

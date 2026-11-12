@@ -2,6 +2,14 @@
 
 Bases sem API aberta ou que exigem cadastro. Cada arquivo baixado vai para a subpasta indicada em `dados/01_bruto`, com o nome original preservado e a data do download anotada em `dados/01_bruto/<fonte>/LEIAME.txt`.
 
+## RREO e RGF estaduais de 2000 a 2014
+
+A consulta de RREO no SICONFI, e portanto a API, começa em 2015 para os estados. Os relatórios anteriores foram publicados por cada estado no próprio portal, em geral em PDF, na seção de transparência ou de “Relatórios da LRF” da secretaria de Fazenda ou de Economia. O Distrito Federal, por exemplo, mantém todos os demonstrativos do RREO de 2000 em diante.
+
+Antes de baixar 27 estados por 15 anos, vale decidir com o grupo se a frequência anual basta para as crises de 2003 e de 2008-09. Se bastar, as séries anuais da Execução Orçamentária de Estados e do FINBRA histórico (seção seguinte) cobrem poupança corrente, pessoal, investimento e serviço da dívida sem precisar extrair dados de PDF. Se for preciso o bimestre, a recomendação é começar pelos estados de comparação mais relevantes para Mato Grosso e extrair só as linhas usadas no projeto. Destino: `dados/01_bruto/rreo_rgf_portais/<UF>/`.
+
+Para a dívida consolidada antes de 2015, o orientador indicou os dados do PAF e da STN além do RGF. Vale perguntar a ele qual série do PAF tem em mente e onde ela está publicada.
+
 ## CONFAZ: Boletim de Arrecadação dos Tributos Estaduais
 
 Página: https://www.confaz.fazenda.gov.br/boletim-de-arrecadacao-dos-tributos-estaduais

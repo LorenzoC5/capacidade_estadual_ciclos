@@ -27,4 +27,8 @@ A API devolve uma linha por célula do demonstrativo. As colunas que importam s�
 | Despesa por natureza | DCA, Anexo I-D | elementos de despesa | Liquidadas | |
 | Caixa mensal | MSC patrimonial, classe 1 | contas de caixa e equivalentes (1.1.1) | ending_balance | A partir de 2018; permite separar fontes livres e vinculadas |
 
+A numeração dos anexos mudou ao longo do tempo. Na edição atual do Manual de Demonstrativos Fiscais, receitas e despesas correntes estão no Anexo 1 (balanço orçamentário) e a RCL no Anexo 3; em relatórios mais antigos a ordem pode ser outra, e é por isso que o orientador falou em Anexo II ou III. Para os anos anteriores a 2015, conferir o sumário de cada RREO antes de extrair.
+
+O custo do serviço da dívida, que o orientador sugeriu acompanhar nas crises, sai de juros e encargos mais amortização (RREO, Anexo 1) dividido pela RCL (Anexo 3). A dívida consolidada vem do RGF, Anexo 2.
+
 Dois avisos práticos. Primeiro, o RREO do 6º bimestre e a DCA do mesmo ano nem sempre batem, porque a DCA é fechada depois e com outro recorte; para séries anuais, a DCA é a referência e o RREO serve para a dinâmica dentro do ano. Segundo, o SICONFI aceita retificações: rodar a coleta de novo meses depois pode trazer valores diferentes para períodos antigos, então convém guardar a data da coleta junto com cada versão do painel.
