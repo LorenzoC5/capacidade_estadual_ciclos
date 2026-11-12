@@ -10,13 +10,20 @@ Cada portal é diferente. O fluxo esperado é rodar por estado, olhar o manifest
 gerado e, se preciso, ajustar a URL de partida, a profundidade ou os filtros
 daquele estado no catálogo.
 
+Quando o portal não se deixa percorrer (página montada por JavaScript, busca por
+formulário, arquivos só no Wayback Machine), o estado usa o tipo "lista": os
+links ficam em dados/00_referencia/rreo_links/<UF>.csv, com as colunas ano,
+bimestre, url e, opcionalmente, parte (quando o RREO vem em mais de um arquivo,
+por exemplo um por anexo) e observacao. A rotina então só baixa o que está lá.
+
 Uso:
     python scripts/40_rreo_baixar.py --uf MT --anos 2000 2015
     python scripts/40_rreo_baixar.py --uf MT --profundidade 3 --listar   # só lista, não baixa
     python scripts/40_rreo_baixar.py --todos
+    python scripts/40_rreo_baixar.py --uf BA --anos 2000 2015      # estado do tipo "lista"
 
 Saídas:
-    dados/01_bruto/rreo_rgf_portais/<UF>/<ano>/<UF>_<ano>_b<N>.<ext>
+    dados/01_bruto/rreo_rgf_portais/<UF>/<ano>/<UF>_<ano>_b<N>[_<parte>].<ext>
     dados/01_bruto/rreo_rgf_portais/<UF>/_manifesto.csv   (todos os links avaliados)
 """
 from __future__ import annotations
@@ -35,6 +42,7 @@ from bs4 import BeautifulSoup
 from _util import BRUTO, REF, log
 
 DESTINO = BRUTO / "rreo_rgf_portais"
+LINKS = REF / "rreo_links"
 HEADERS = {"User-Agent": "Mozilla/5.0 (pesquisa academica FEA-USP; contato via SEFAZ-MT)"}
 EXT_ARQ = (".pdf", ".xls", ".xlsx", ".zip")
 RX_RREO = re.compile(r"RREO|RESUMIDO DA EXECU|EXECUCAO ORCAMENTARIA|LRF|RESPONSABILIDADE FISCAL", re.I)
@@ -107,7 +115,58 @@ def ckan(url_dataset: str) -> list[dict]:
             for res in r.json()["result"]["resources"]]
 
 
+def lista(uf: str) -> pd.DataFrame:
+    arq = LINKS / f"{uf}.csv"
+    if not arq.exists():
+        log.warning("%s: tipo lista, mas %s não existe", uf, arq)
+        return pd.DataFrame()
+    man = pd.read_csv(arq, dtype={"parte": str}).fillna({"parte": ""})
+    if "parte" not in man:
+        man["parte"] = ""
+    man["texto"] = man["observacao"] if "observacao" in man else ""
+    man["pagina"] = arq.name
+    return man
+
+
+def baixar_lista(uf: str, anos: tuple[int, int], listar: bool):
+    man = lista(uf)
+    if man.empty:
+        return
+    man = man[man["ano"].between(*anos)].copy()
+    man["status"] = ""
+    pasta = DESTINO / uf
+    pasta.mkdir(parents=True, exist_ok=True)
+    for i, linha in man.iterrows():
+        ext = next((e for e in EXT_ARQ if linha.url.lower().split("?")[0].endswith(e)), ".pdf")
+        sufixo = f"_{linha.parte}" if linha.parte else ""
+        arq = pasta / f"{int(linha.ano)}" / f"{uf}_{int(linha.ano)}_b{int(linha.bimestre)}{sufixo}{ext}"
+        man.at[i, "arquivo"] = str(arq.relative_to(DESTINO))
+        if listar:
+            continue
+        if arq.exists():
+            man.at[i, "status"] = "ja_existia"
+            continue
+        try:
+            r = requests.get(linha.url, headers=HEADERS, timeout=120)
+            r.raise_for_status()
+            if ext == ".pdf" and not r.content.startswith(b"%PDF"):
+                man.at[i, "status"] = "nao_e_pdf"
+                continue
+            arq.parent.mkdir(parents=True, exist_ok=True)
+            arq.write_bytes(r.content)
+            man.at[i, "status"] = "baixado"
+            man.at[i, "sha1"] = hashlib.sha1(r.content).hexdigest()
+        except requests.RequestException as e:
+            man.at[i, "status"] = f"erro: {e}"[:120]
+        time.sleep(0.5)
+    man.to_csv(pasta / "_manifesto.csv", index=False)
+    log.info("%s: %s links na lista; status: %s; bimestres por ano: %s", uf, len(man),
+             man["status"].value_counts().to_dict(), man.groupby("ano")["bimestre"].nunique().to_dict())
+
+
 def baixar(uf: str, tipo: str, url: str, anos: tuple[int, int], profundidade: int, listar: bool):
+    if tipo == "lista":
+        return baixar_lista(uf, anos, listar)
     achados = ckan(url) if tipo == "ckan" else percorrer(url, profundidade)
     man = pd.DataFrame(achados).drop_duplicates("url") if achados else pd.DataFrame(columns=["url", "texto", "pagina"])
     if man.empty:
@@ -154,7 +213,7 @@ if __name__ == "__main__":
     cat = pd.read_csv(REF / "rreo_portais.csv").fillna("")
     alvos = cat if a.todos else cat[cat.uf == a.uf]
     for _, c in alvos.iterrows():
-        if not c.url:
+        if not c.url and c.tipo != "lista":
             log.info("%s: sem URL no catálogo; preencher dados/00_referencia/rreo_portais.csv", c.uf)
             continue
         baixar(c.uf, c.tipo, c.url, tuple(a.anos), a.profundidade, a.listar)

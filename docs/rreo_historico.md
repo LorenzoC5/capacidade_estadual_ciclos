@@ -8,17 +8,27 @@ O trabalho tem três etapas, cada uma com uma rotina.
 
 `40_rreo_baixar.py` lê a URL de cada estado em `dados/00_referencia/rreo_portais.csv`, percorre a página, segue os links que parecem levar a relatórios da LRF e baixa os arquivos que parecem ser RREO, identificando ano e bimestre pelo texto do link. Tudo o que encontrou fica em `_manifesto.csv`, na pasta do estado, inclusive o que não baixou e por quê.
 
+Na prática, a maioria dos portais não se deixa percorrer assim: páginas montadas por JavaScript, buscas por formulário, sites antigos que saíram do ar. Para esses estados o catálogo usa o tipo `lista`, e os endereços de cada relatório ficam em `dados/00_referencia/rreo_links/<UF>.csv` (colunas `ano`, `bimestre`, `parte`, `url`, `observacao`). A rotina só baixa o que está na lista e confere se o arquivo é mesmo um PDF. Quando o estado publica um arquivo por anexo, a coluna `parte` distingue os pedaços (`anexo01`, `anexo03` etc.) e o nome do arquivo ganha esse sufixo. Muitos links dos primeiros anos apontam para o Wayback Machine, no formato `https://web.archive.org/web/<data>id_/<endereço original>`, que devolve o arquivo como foi guardado; a lista de tudo o que o Wayback guardou de um domínio sai da API CDX (`http://web.archive.org/cdx/search/cdx?url=<domínio>/*&filter=mimetype:application/pdf`).
+
 `41_rreo_extrair.py` abre cada arquivo, localiza o Balanço Orçamentário e o demonstrativo da RCL e lê as linhas principais: receita corrente, receita tributária, transferências correntes, receita de capital, operações de crédito, despesa corrente, pessoal, juros, outras despesas correntes, despesa de capital, investimentos, inversões e amortização. Para escolher a coluna certa, usa a identidade contábil da própria linha (previsão atualizada igual a realizado mais saldo, na receita; dotação atualizada igual a liquidado mais saldo, na despesa). Assim a rotina não depende da posição exata das colunas, que muda entre estados e anos. Quando a identidade não fecha, usa a posição padrão e marca a linha.
 
 `42_rreo_serie_continua.py` junta os PDFs (até 2014) com a API (de 2015 em diante), calcula o fluxo de cada bimestre e roda as checagens de qualidade.
 
 ## Ordem de trabalho recomendada
 
-O catálogo já tem endereços para Mato Grosso, Espírito Santo, Goiás, Minas Gerais, Paraná, Pernambuco, Rio de Janeiro, Rio Grande do Sul e Santa Catarina. Os demais estão marcados como “preencher”.
+Os 27 estados já estão no catálogo, todos com o tipo `lista`; a coluna `observacao` resume a cobertura e as lacunas de cada um. Para baixar tudo de novo, basta `python scripts/40_rreo_baixar.py --todos`. O Wayback Machine limita requisições em sequência, então pode ser preciso rodar a rotina mais de uma vez até todos os arquivos virem (o que já está em disco é pulado).
 
-A sugestão é começar por Mato Grosso, sozinho, e só depois ampliar:
+O que ficou de fora, e por quê:
 
-1. rodar `python scripts/40_rreo_baixar.py --uf MT --listar` e conferir no manifesto se os links de 2000 a 2015 apareceram; se não, aumentar a profundidade ou trocar a URL de partida no catálogo;
+- Amapá não tem nenhum RREO de 2000 a 2015 em PDF ou planilha; só páginas HTML de 2000 a 2004 no Wayback.
+- Acre publica 2000 a 2015 completos, mas o servidor não envia o certificado intermediário e a requisição falha; entraram só os anos que o Wayback guardou.
+- Alguns estados guardam os anos antigos só em ZIP (Maranhão de 2001 a 2012, Piauí em 2001 e 2002, Distrito Federal em 2002 e 2003) ou só em HTML (Mato Grosso do Sul de 2000 a 2002). A rotina ainda não abre esses formatos.
+- Rio Grande do Norte só tem 2010 em diante, e Roraima só 2012 em diante.
+- Parte dos arquivos é escaneada ou tem as tabelas como imagem (Amazonas, Mato Grosso de 2002 a 2006, Mato Grosso do Sul até 2006, Santa Catarina em 2003, Rondônia de 2001 a 2005) e precisa de OCR.
+
+Para um estado novo, ou para refazer a lista de um deles, a sequência é a mesma que serviu para Mato Grosso:
+
+1. montar `dados/00_referencia/rreo_links/MT.csv` com um link por bimestre (ou por anexo), conferindo o período impresso em cada arquivo, porque vários portais trocam bimestres; se o portal for uma página simples, o tipo `pagina` com `--listar` pode poupar esse trabalho;
 2. baixar os arquivos (`--uf MT`, sem `--listar`) e abrir alguns no visualizador para ver se são texto ou imagem;
 3. testar a extração em um arquivo de cada fase do leiaute (por exemplo 2002, 2006, 2010, 2014), com `--arquivo ... --mostrar`, e conferir os números com o PDF aberto;
 4. extrair o estado inteiro e rodar a rotina 42.
