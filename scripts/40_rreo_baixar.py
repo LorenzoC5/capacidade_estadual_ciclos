@@ -35,6 +35,7 @@ import time
 import unicodedata
 from urllib.parse import urljoin, urlparse
 
+import certifi
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
@@ -44,6 +45,25 @@ from _util import BRUTO, REF, log
 DESTINO = BRUTO / "rreo_rgf_portais"
 LINKS = REF / "rreo_links"
 HEADERS = {"User-Agent": "Mozilla/5.0 (pesquisa academica FEA-USP; contato via SEFAZ-MT)"}
+CERTIFICADOS = REF / "certificados"
+
+
+def cadeia_certificados() -> str:
+    """Certificados confiáveis do certifi mais os intermediários em 00_referencia/certificados.
+
+    Alguns portais (o da SEFAZ-AC, por exemplo) não enviam o certificado
+    intermediário, e a conexão falha mesmo com o site em ordem. Guardar o
+    intermediário público da autoridade certificadora completa a cadeia sem
+    desligar a verificação.
+    """
+    destino = DESTINO / "_cadeia_certificados.pem"
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    extras = "".join(c.read_text() for c in sorted(CERTIFICADOS.glob("*.pem")))
+    destino.write_text(open(certifi.where(), encoding="utf-8").read() + extras, encoding="utf-8")
+    return str(destino)
+
+
+VERIFICAR = cadeia_certificados()
 EXT_ARQ = (".pdf", ".xls", ".xlsx", ".zip")
 RX_RREO = re.compile(r"RREO|RESUMIDO DA EXECU|EXECUCAO ORCAMENTARIA|LRF|RESPONSABILIDADE FISCAL", re.I)
 RX_EXCLUI = re.compile(r"\bRGF\b|GESTAO FISCAL|MUNICIP|PREFEITURA|SIMPLIFICADO", re.I)
@@ -73,7 +93,7 @@ def identificar(texto: str) -> tuple[int | None, int | None]:
 
 def links_da_pagina(url: str) -> list[tuple[str, str]]:
     try:
-        r = requests.get(url, headers=HEADERS, timeout=60)
+        r = requests.get(url, headers=HEADERS, verify=VERIFICAR, timeout=60)
         r.raise_for_status()
     except requests.RequestException as e:
         log.warning("Falha ao abrir %s: %s", url, e)
@@ -109,7 +129,7 @@ def percorrer(inicio: str, profundidade: int) -> list[dict]:
 def ckan(url_dataset: str) -> list[dict]:
     base = url_dataset.split("/dataset/")[0]
     nome = url_dataset.rstrip("/").split("/")[-1]
-    r = requests.get(f"{base}/api/3/action/package_show", params={"id": nome}, headers=HEADERS, timeout=60)
+    r = requests.get(f"{base}/api/3/action/package_show", params={"id": nome}, headers=HEADERS, verify=VERIFICAR, timeout=60)
     r.raise_for_status()
     return [{"url": res["url"], "texto": norm(f"{res.get('name', '')} {res['url']}"), "pagina": url_dataset}
             for res in r.json()["result"]["resources"]]
@@ -147,7 +167,7 @@ def baixar_lista(uf: str, anos: tuple[int, int], listar: bool):
             man.at[i, "status"] = "ja_existia"
             continue
         try:
-            r = requests.get(linha.url, headers=HEADERS, timeout=120)
+            r = requests.get(linha.url, headers=HEADERS, verify=VERIFICAR, timeout=120)
             r.raise_for_status()
             if ext == ".pdf" and not r.content.startswith(b"%PDF"):
                 man.at[i, "status"] = "nao_e_pdf"
@@ -187,7 +207,7 @@ def baixar(uf: str, tipo: str, url: str, anos: tuple[int, int], profundidade: in
             man.at[i, "status"] = "ja_existia"
             continue
         try:
-            r = requests.get(linha.url, headers=HEADERS, timeout=120)
+            r = requests.get(linha.url, headers=HEADERS, verify=VERIFICAR, timeout=120)
             r.raise_for_status()
             arq.parent.mkdir(parents=True, exist_ok=True)
             arq.write_bytes(r.content)

@@ -16,12 +16,11 @@ Na prática, a maioria dos portais não se deixa percorrer assim: páginas monta
 
 ## Ordem de trabalho recomendada
 
-Os 27 estados já estão no catálogo, todos com o tipo `lista`; a coluna `observacao` resume a cobertura e as lacunas de cada um. Para baixar tudo de novo, basta `python scripts/40_rreo_baixar.py --todos`. O Wayback Machine limita requisições em sequência, então pode ser preciso rodar a rotina mais de uma vez até todos os arquivos virem (o que já está em disco é pulado).
+Os 27 estados já estão no catálogo, todos com o tipo `lista`; a coluna `observacao` resume a cobertura e as lacunas de cada um. Para baixar tudo de novo, basta `python scripts/40_rreo_baixar.py --todos`. Alguns servidores (o da SEFAZ-AC, por exemplo) não enviam o certificado intermediário da cadeia; a rotina confia nos certificados padrão do `certifi` mais os intermediários públicos guardados em `dados/00_referencia/certificados/`, o que resolve sem desligar a verificação. O Wayback Machine limita requisições em sequência, então pode ser preciso rodar a rotina mais de uma vez até todos os arquivos virem (o que já está em disco é pulado).
 
 O que ficou de fora, e por quê:
 
 - Amapá não tem nenhum RREO de 2000 a 2015 em PDF ou planilha; só páginas HTML de 2000 a 2004 no Wayback.
-- Acre publica 2000 a 2015 completos, mas o servidor não envia o certificado intermediário e a requisição falha; entraram só os anos que o Wayback guardou.
 - Alguns estados guardam os anos antigos só em ZIP (Maranhão de 2001 a 2012, Piauí em 2001 e 2002, Distrito Federal em 2002 e 2003) ou só em HTML (Mato Grosso do Sul de 2000 a 2002). A rotina ainda não abre esses formatos.
 - Rio Grande do Norte só tem 2010 em diante, e Roraima só 2012 em diante.
 - Parte dos arquivos é escaneada ou tem as tabelas como imagem (Amazonas, Mato Grosso de 2002 a 2006, Mato Grosso do Sul até 2006, Santa Catarina em 2003, Rondônia de 2001 a 2005) e precisa de OCR.

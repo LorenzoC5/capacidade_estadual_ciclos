@@ -1,5 +1,5 @@
 uf,tipo,url,observacao
-AC,lista,https://sefaz.ac.gov.br/2021/?page_id=22136,portal tem 2000-2015 por anexo mas não envia o certificado intermediário; só entram as cópias do Wayback (2004, 2006, 2007 e 2º bim. de 2001); RCL em glifos, sem texto
+AC,lista,https://sefaz.ac.gov.br/2021/?page_id=22136,Balanço e RCL por bimestre de 2000 (3º bim.) a 2015; o servidor não envia o certificado intermediário (ver dados/00_referencia/certificados); RCL em glifos sem texto em vários anos
 AL,lista,https://www.transparencia.al.gov.br/portal/relatorio-resumido-de-execucao-orcamentaria,RREO completo por bimestre de 2002 a 2015 e 6º bim. de 2001; URLs previsíveis
 AM,lista,https://www.sefaz.am.gov.br/submenu-externo/45913,RREO completo 2001-2015 via Wayback de arquivoFisico.asp (o portal atual só entrega JSON); 2001-2002 e 2011-2015 escaneados
 AP,lista,,sem RREO 2000-2015 em PDF ou XLS; só páginas HTML de 2000-2004 no Wayback da SEFAZ-AP; portal de transparência a partir de 2020

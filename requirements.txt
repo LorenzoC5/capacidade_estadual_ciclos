@@ -7,3 +7,4 @@ tabulate>=0.9
 beautifulsoup4>=4.12
 pdfplumber>=0.11
 xlrd>=2.0
+certifi>=2024.2
